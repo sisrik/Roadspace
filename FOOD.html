@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: url('pic.jpeg'); /* Set the background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-repeat: no-repeat; /* Prevent image repetition */
+            background-attachment: fixed; /* Keep background fixed while scrolling */
+            color: #37474f;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: rgba(2, 61, 54, 0.8); /* Semi-transparent background */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        #content-container {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent content background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        .menu-item {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent menu item background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item button {
+            background-color: #ff5733;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #cart {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent cart background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 1500px;
+            align-self: flex-start;
+        }
+
+        #cart ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart li {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #cart li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Food Ordering</h1>
+    </header>
+
+    <div id="content-container">
+        <div id="menu-container">
+            <div class="menu-item">
+                <img src="pizza.jpeg" alt="Pizza">
+                <h2>Pizza</h2>
+                <p>Delicious pizza with various toppings.</p>
+                <button onclick="addToCart('Pizza', 1200.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="burger.jpeg" alt="Burger">
+                <h2>Burger</h2>
+                <p>Classic burger with fries.</p>
+                <button onclick="addToCart('Burger', 80.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="salad.jpeg" alt="Salad">
+                <h2>Salad</h2>
+                <p>Fresh and healthy salad.</p>
+                <button onclick="addToCart('Salad', 266.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="pasta.jpeg" alt="Pasta">
+                <h2>Pasta</h2>
+                <p>Italian pasta with tomato sauce.</p>
+                <button onclick="addToCart('Pasta', 299.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="sushi.jpeg" alt="Sushi">
+                <h2>Sushi</h2>
+                <p>Fresh Japanese sushi rolls.</p>
+                <button onclick="addToCart('Sushi', 760.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="steak.jpeg" alt="Steak">
+                <h2>Steak</h2>
+                <p>Juicy grilled steak.</p>
+                <button onclick="addToCart('Steak', 600.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="noodles.jpeg" alt="Noodles">
+                <h2>Noodles</h2>
+                <p>Asian style noodles with vegetables.</p>
+                <button onclick="addToCart('Noodles', 399.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="tacos.jpeg" alt="Tacos">
+                <h2>Tacos</h2>
+                <p>Mexican tacos with salsa.</p>
+                <button onclick="addToCart('Tacos', 180.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="curry.jpeg" alt="Curry">
+                <h2>Curry</h2>
+                <p>Indian curry with rice.</p>
+                <button onclick="addToCart('Curry', 120.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="soup.jpeg" alt="Soup">
+                <h2>Soup</h2>
+                <p>Heartwarming vegetable soup.</p>
+                <button onclick="addToCart('Soup', 255.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="dessert.jpeg" alt="Dessert">
+                <h2>Dessert</h2>
+                <p>Sweet chocolate dessert.</p>
+                <button onclick="addToCart('Dessert', 116.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="sandwich.jpeg" alt="Sandwich">
+                <h2>Sandwich</h2>
+                <p>Classic club sandwich.</p>
+                <button onclick="addToCart('Sandwich', 100.99)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div id="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: ₹<span id="cart-total">0.00</span></p>
+            <button onclick="placeOrder()">Place Order</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ₹${item.price.toFixed(2)}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function placeOrder() {
+            if (cart.length > 0) {
+                alert('Order placed successfully!');
+                cart = [];
+                updateCart();
+            } else {
+                alert('Your cart is empty.');
+            }
+        }
+    </script>
+</body>
+</html>
